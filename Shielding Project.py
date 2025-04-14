@@ -1,6 +1,6 @@
 import math
 def primary_barrier():
-    total_wl = 0
+    total_wl_u = 0
     try:
         energy = float(input("Input energy in MV: "))
 
@@ -20,7 +20,7 @@ def primary_barrier():
             elif workload_type.lower() == 'c':
                 result = wl * usage
 
-            total_wl += result
+            total_wl_u += result
 
         print('----------------------')
         occupancy = float(input("Input occupancy factor:  "))
@@ -31,9 +31,9 @@ def primary_barrier():
         TVL1 = float(input(f"Enter TVL_1 (cm) for {energy} MV:  "))
         TVLe = float(input(f"Enter TVL_e (cm) for {energy} MV:  "))
 
-        d_primary = (d_primary * 2.54) / 100 + 0.3 + 1  # Distance from target to 0.3m beyond distal wall in meters
+        d_primary = ((d_primary * 2.54) / 100) + 0.3 + 1  # Distance from target to 0.3m beyond distal wall in meters
 
-        B = (design_goal*10**-3 * (d_primary**2)) / (total_wl * occupancy)  # d_primary in cm
+        B = (design_goal*10**-3 * (d_primary**2)) / (total_wl_u * occupancy)  # d_primary in cm
         # Calculates number of TVLs
         n = -math.log10(B)
         # Calculates required thickness for the primary barrier
@@ -44,7 +44,7 @@ def primary_barrier():
         return None, None
 
     print('---------------------------')
-    print(f"Total workload: {total_wl} Gy/wk")
+    print(f"Total workload with U: {total_wl_u} Gy/wk")
     print(f"d_primary: {d_primary} m")
     print('---------------------------')
     print(f"Transmission factor: {B}")
