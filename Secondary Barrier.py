@@ -39,10 +39,13 @@ def H_leak_unshielded(W_L, d_leakage): # Calculates UNSHIELDED equivalent dose f
 
 
 def find_t_secondary(P, T, F):
-    thickness = 10 # cm
+    thickness = 10  # cm
     H_total_shielded = 100000
+    # Add QA energy
     while (P/T) < H_total_shielded:
-        H_total_shielded = ((10**-(thickness/TVLa) * (W_a * a_a * F) / (d_sec_a**2 * d_sca_a**2 * 400) * 10**3) +
-            (10**-(thickness/TVLb) * (W_b * a_b * F) / (d_sec_b**2 * d_sca_b**2 * 400) * 10**3)) + (10**-(1+((thickness-TVL1_c)/TVLe_c))* (W * a * F) / (d_sec**2 * d_sca**2 * 400) * 10**3) + (10**-(1+((thickness-TVL1_d)/TVLe_d))* (W_L * a_L) / (d_leakage**2) * 10**3)
+        H_total_shielded = ((10**-(thickness/TVLa) * (W_a * a_a * F) / (d_sec**2 * d_sca**2 * 400) * 10**3) +
+                            (10**-(thickness/TVLb) * (W_b * a_b * F) / (d_sec**2 * d_sca**2 * 400) * 10**3)) + \
+            (10**-(1+((thickness-TVL1_c)/TVLe_c)) * (W * 10**-3) / (d_leak**2) * 10**3) + \
+            (10**-(1+((thickness-TVL1_d)/TVLe_d)) * (W * 10**-3) / (d_leak**2) * 10**3)
             
         
