@@ -9,17 +9,9 @@ def primary_barrier():
 
         for i in range(num_workloads):
             print('-------------------------')
-            workload_type = input("IMRT or conventional? (Type 'IMRT' or 'C'): ")
             wl = float(input(f"Enter workload #{i + 1} (Gy/wk):"))
             usage = float(input("Input usage factor: "))
-
-            if workload_type.lower() == 'imrt':
-                c_i = float(input("Input correction factor: "))
-                result = c_i * wl * usage
-
-            elif workload_type.lower() == 'c':
-                result = wl * usage
-
+            result = wl * usage
             total_wl_u += result
 
         print('----------------------')
@@ -31,7 +23,7 @@ def primary_barrier():
         TVL1 = float(input(f"Enter TVL_1 (cm) for {energy} MV:  "))
         TVLe = float(input(f"Enter TVL_e (cm) for {energy} MV:  "))
 
-        d_primary = ((d_primary * 2.54) / 100) + 0.3 + 1  # Distance from target to 0.3m beyond distal wall in meters
+        d_primary = ((d_primary * 2.54) / 100) + 0.3 + 1  # Distance from source to 0.3m beyond distal wall in meters
 
         B = (design_goal*10**-3 * (d_primary**2)) / (total_wl_u * occupancy)  # d_primary in cm
         # Calculates number of TVLs
