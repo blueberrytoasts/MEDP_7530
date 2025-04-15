@@ -54,13 +54,41 @@ def find_t_secondary(P, T, F, dist, d_sca):
     :param d_sca: scatter distance (m) from source to point of scatter. Usually 1 m
     :return:
     """
+    print("6 MV Patient Scatter")
+    TVLa = float(input("Input TVL (cm):  "))
+    W_a = float(input("Input workload: "))
+    a_a = float(input("Input average scatter fraction:  "))
+
+    print("6 MV Leakage")
+    TVL1_c = float(input("Input TVL_1 (cm):  "))
+    TVLe_c = float(input("Input TVL_e (cm):  "))
+    W_c = float(input("Input workload: "))
+
+    print("18 MV Patient Scatter")
+    TVLb = float(input("Input TVL (cm):  "))
+    W_b = float(input("Input workload: "))
+    a_b = float(input("Input average scatter fraction:  "))
+
+    print("18 MV Leakage")
+    TVL1_d = float(input("Input TVL_1 (cm):  "))
+    TVLe_d = float(input("Input TVL_e (cm):  "))
+    W_d = float(input("Input workload: "))
+
     d_sec = dist
     d_leak = dist
     thickness = 10  # cm
-    H_total_shielded = 100000
+
     # Add QA workload
-    while (P / T) < H_total_shielded:
-        H_total_shielded = ((10 ** -(thickness / TVLa) * (W_a * a_a * F) / (d_sec ** 2 * d_sca ** 2 * 400)) + \
-                           (10 ** -(thickness / TVLb) * (W_b * a_b * F) / (d_sec ** 2 * d_sca ** 2 * 400)) + \
-                           (10 ** -(1 + ((thickness - TVL1_c) / TVLe_c)) * (W_c * 10 ** -3) / d_leak ** 2) + \
-                           (10 ** -(1 + ((thickness - TVL1_d) / TVLe_d)) * (W_d * 10 ** -3) / d_leak ** 2)) * 10**3
+    flag = True
+    while flag:
+        H_total_shielded = ((10 ** -(thickness / TVLa) * (W_a * a_a * F) / (d_sec ** 2 * d_sca ** 2 * 400)) +
+                            (10 ** -(thickness / TVLb) * (W_b * a_b * F) / (d_sec ** 2 * d_sca ** 2 * 400)) +
+                            (10 ** -(1 + ((thickness - TVL1_c) / TVLe_c)) * (W_c * 10 ** -3) / d_leak ** 2) +
+                            (10 ** -(1 + ((thickness - TVL1_d) / TVLe_d)) * (W_d * 10 ** -3) / d_leak ** 2)) * 10**3
+        if P/T > H_total_shielded:
+            flag = False
+            print(thickness)
+        else:
+            thickness += 0.5
+
+find_t_secondary(0.1,0.5,1600,7.158,1)
