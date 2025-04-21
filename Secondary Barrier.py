@@ -1,5 +1,5 @@
 import math
-
+import csv
 
 def B1(thickness, TVL):  # Calculates B factor using only 1 TVL. Important for PATIENT SCATTER
     """
@@ -54,6 +54,8 @@ def find_t_secondary(P, T, F, dist, d_sca):
     :param d_sca: scatter distance (m) from source to point of scatter. Usually 1 m
     :return:
     """
+    wall = input("Which wall?  ")
+    print(f"Wall {wall}")
     print("6 MV Patient Scatter")
     TVLa = float(input("Input TVL (cm):  "))
     W_a = float(input("Input workload: "))
@@ -87,8 +89,16 @@ def find_t_secondary(P, T, F, dist, d_sca):
                             (10 ** -(1 + ((thickness - TVL1_d) / TVLe_d)) * (W_d * 10 ** -3) / d_leak ** 2)) * 10**3
         if P/T > H_total_shielded:
             flag = False
-            print(thickness)
+            print('---------------')
+            print(f"Thickness {thickness} cm")
+
         else:
-            thickness += 0.5
+            thickness += 0.1
+
+    print(f"Design Goal {P} mSv/wk")
+    print(f"Occupancy Factor {T}")
+    print(f"Field Size {F}")
+    print(f"Distance {dist} m")
+
 
 find_t_secondary(0.1,0.5,1600,7.158,1)
