@@ -1,0 +1,2 @@
+Wall,Energy,P (mSv/wk),T,F (cm^2),Distance (m),Scatter Distance (m),6MV_TVL,6MV_Workload,6MV_Scatter_Frac,6MV_TVL1_Leak,6MV_TVLe_Leak,6MV_Leak_Workload,18MV_TVL,18MV_Workload,18MV_Scatter_Frac,18MV_TVL1_Leak,18MV_TVLe_Leak,18MV_Leak_Workload,Required_Thickness_cm
+A,both,0.02,0.025,1600,7.310957385,1,34.0,520.0,0.00673,34.0,29.0,1990.0,44.0,250.0,0.00539,36.0,34.0,250.0,101.4
