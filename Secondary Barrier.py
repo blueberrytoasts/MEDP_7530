@@ -107,7 +107,7 @@ def find_t_secondary(P, T, F, dist, d_sca, filename='secondary_shielding.csv'):
     print(f"\nShielding thickness for wall '{wall}' recorded: {thickness:.1f} cm")
 
 #  Wall A
-find_t_secondary(0.02, 0.025, 1600, 7.3260137, 1, filename='secondary_shielding.csv')
+find_t_secondary(0.02, 0.025, 1600, 7.618662556, 1, filename='secondary_shielding.csv')
 
 
 # Wall C
