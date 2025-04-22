@@ -25,7 +25,7 @@ def find_t_secondary(P, T, F, dist, d_sca, filename='secondary_shielding.csv'):
         print("\n--- 6 MV Inputs ---")
         TVLa = float(input("6 MV Patient Scatter TVL (cm): "))
         W_a = float(input("6 MV Workload (Gy/wk): "))
-        a_a = float(input("6 MV Average scatter fraction: "))
+        a_a = float(input("6 MV Scatter fraction: "))
         TVL1_c = float(input("6 MV Leakage TVL_1 (cm): "))
         TVLe_c = float(input("6 MV Leakage TVL_e (cm): "))
         W_c = float(input("6 MV Leakage Workload (Gy/wk): "))
@@ -52,7 +52,7 @@ def find_t_secondary(P, T, F, dist, d_sca, filename='secondary_shielding.csv'):
         print("\n--- 18 MV Inputs ---")
         TVLb = float(input("18 MV Patient Scatter TVL (cm): "))
         W_b = float(input("18 MV Workload (Gy/wk): "))
-        a_b = float(input("18 MV Average scatter fraction: "))
+        a_b = float(input("18 MV Scatter fraction: "))
         TVL1_d = float(input("18 MV Leakage TVL_1 (cm): "))
         TVLe_d = float(input("18 MV Leakage TVL_e (cm): "))
         W_d = float(input("18 MV Leakage Workload (Gy/wk): "))
@@ -107,7 +107,7 @@ def find_t_secondary(P, T, F, dist, d_sca, filename='secondary_shielding.csv'):
     print(f"\nShielding thickness for wall '{wall}' recorded: {thickness:.1f} cm")
 
 #  Wall A
-find_t_secondary(0.02, 0.025, 1600, 7.310957385, 1, filename='secondary_shielding.csv')
+find_t_secondary(0.02, 0.025, 1600, 7.3260137, 1, filename='secondary_shielding.csv')
 
 
 # Wall C
