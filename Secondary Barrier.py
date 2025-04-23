@@ -111,4 +111,8 @@ def find_t_secondary(P, T, F, dist, d_sca, filename='secondary_shielding.csv'):
 
 
 # Wall C
-find_t_secondary(0.1, 0.5, 1600, 7.618662556, 1, filename='secondary_shielding.csv')
+# find_t_secondary(0.1, 0.5, 1600, 7.618662556, 1, filename='secondary_shielding.csv')
+
+
+# Wall B
+find_t_secondary(0.02, 1, 1600, 6.395969266, 1, filename='secondary_shielding.csv')
