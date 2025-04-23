@@ -91,8 +91,11 @@ def find_t_secondary(P, T, F, dist, d_sca, filename='secondary_shielding.csv'):
         H_total *= 1e3  # convert to mSv/wk
 
         if P / T > H_total:
+            print(f"{P / T} vs. {H_total}")
             break
         thickness += 0.1
+
+
 
     data['Required_Thickness_cm'] = round(thickness, 1)
 
@@ -107,7 +110,7 @@ def find_t_secondary(P, T, F, dist, d_sca, filename='secondary_shielding.csv'):
     print(f"\nShielding thickness for wall '{wall}' recorded: {thickness:.1f} cm")
 
 #  Wall A
-# find_t_secondary(0.02, 0.025, 1600, 7.618662556, 1, filename='secondary_shielding.csv')
+# find_t_secondary(0.1, 0.5, 1600, 8.266700002, 1, filename='secondary_shielding.csv')
 
 
 # Wall C
@@ -115,4 +118,4 @@ def find_t_secondary(P, T, F, dist, d_sca, filename='secondary_shielding.csv'):
 
 
 # Wall B
-find_t_secondary(0.02, 1, 1600, 6.395969266, 1, filename='secondary_shielding.csv')
+find_t_secondary(0.02, 1, 1600, 6.395988224, 1, filename='secondary_shielding.csv')
