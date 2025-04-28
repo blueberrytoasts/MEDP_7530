@@ -97,7 +97,7 @@ def find_t_secondary(P, T, F, dist, d_sca, filename='secondary_shielding.csv'):
 
     test = (W_a * a_a * F) / (dist ** 2 * d_sca ** 2 * 400)
     test2 = (W_c * 1e-3) / dist ** 2
-    print(test, test2)
+    print(f"H_ps_6MV = {test} and H_leak_6MV = {test2}")
     data['Required_Thickness_cm'] = round(thickness, 1)
 
     # Write to CSV
@@ -137,8 +137,12 @@ def find_t_secondary(P, T, F, dist, d_sca, filename='secondary_shielding.csv'):
 # find_t_secondary(.02, 1, 400, 6.395969428000001, 1, filename='secondary_shielding.csv')
 
 # Wall A
-find_t_secondary(0.02, 0.025, 400,7.617384562,1, filename='secondary_shielding.csv')
+# find_t_secondary(0.02, 0.025, 400,7.617384562,1, filename='secondary_shielding.csv')
 
 # Wall Z
 
 # find_t_secondary(.1, 1, 400, 9.444030642, 1, filename='secondary_shielding.csv')
+
+# Point right outside the door
+
+find_t_secondary(.1, 1, 400, 7.77684373, 1, filename='secondary_shielding.csv')
