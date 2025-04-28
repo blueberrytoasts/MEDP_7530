@@ -95,8 +95,9 @@ def find_t_secondary(P, T, F, dist, d_sca, filename='secondary_shielding.csv'):
             break
         thickness += 0.1
 
-
-
+    test = (W_a * a_a * F) / (dist ** 2 * d_sca ** 2 * 400)
+    test2 = (W_c * 1e-3) / dist ** 2
+    print(test, test2)
     data['Required_Thickness_cm'] = round(thickness, 1)
 
     # Write to CSV
@@ -108,6 +109,8 @@ def find_t_secondary(P, T, F, dist, d_sca, filename='secondary_shielding.csv'):
         writer.writerow(data)
 
     print(f"\nShielding thickness for wall '{wall}' recorded: {thickness:.1f} cm")
+    print(f"distance from iso to 0.3 m beyond distal surface: {dist} m")
+
 
 # Vault #1
 #  Wall A
@@ -123,10 +126,19 @@ def find_t_secondary(P, T, F, dist, d_sca, filename='secondary_shielding.csv'):
 
 # Outside door
 
-# find_t_secondary(.1, 1, 1600, 7.578673946, 1, filename='secondary_shielding.csv')
+# find_t_secondary(.1, 1, 1600, 7.7760253420000005, 1, filename='secondary_shielding.csv')
+
+
 
 # Vault # 2
 
 # Wall B
 
-find_t_secondary(.02, 1, 400, 6.395969428000001, 1, filename='secondary_shielding.csv')
+# find_t_secondary(.02, 1, 400, 6.395969428000001, 1, filename='secondary_shielding.csv')
+
+# Wall A
+find_t_secondary(0.02, 0.025, 400,7.617384562,1, filename='secondary_shielding.csv')
+
+# Wall Z
+
+# find_t_secondary(.1, 1, 400, 9.444030642, 1, filename='secondary_shielding.csv')
