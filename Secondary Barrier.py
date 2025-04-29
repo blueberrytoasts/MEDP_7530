@@ -130,7 +130,7 @@ def find_t_secondary(P, T, F, dist, d_sca, filename='secondary_shielding.csv'):
 
 # Ceiling for vault 1
 
-find_t_secondary(.02, 0.025, 1600, 5.000571406, 1, filename='secondary_shielding.csv')
+find_t_secondary(.02, 0.025, 1600, 5.249808905999999, 1, filename='secondary_shielding.csv')
 
 # Vault # 2
 
@@ -147,4 +147,4 @@ find_t_secondary(.02, 0.025, 1600, 5.000571406, 1, filename='secondary_shielding
 
 # Point right outside the door
 
-find_t_secondary(.1, 1, 400, 7.77684373, 1, filename='secondary_shielding.csv')
+# find_t_secondary(.1, 1, 400, 7.77684373, 1, filename='secondary_shielding.csv')
