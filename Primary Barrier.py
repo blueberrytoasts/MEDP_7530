@@ -30,7 +30,7 @@ def primary_barrier():
         n = -math.log10(B)
         # Calculates required thickness for the primary barrier
         thickness = TVL1 + (n-1) * TVLe
-
+        H_unshielded = (design_goal / occupancy) / B
     except ValueError:
         print("Invalid input. Please enter numeric values only.")
         return None, None
@@ -42,5 +42,6 @@ def primary_barrier():
     print(f"Transmission factor: {B}")
     print(f"Number of TVLs: {n}")
     print(f"Thickness required: {thickness} cm")
+    print(f"H_unshielded = {H_unshielded}")
 
 primary_barrier()
